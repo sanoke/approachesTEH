@@ -1,0 +1,19 @@
+export R_LIBS_USER="/home/sca8/R/library"
+module load stats/R/3.1.2
+
+mkdir -p res
+
+
+for NUMSIM in {1..100}; do
+  for SCENARIO in 4; do
+    for SEED in 1; do
+      for NUMGRP in 10; do
+        for STUDY in "BART" "GBM"; do
+          echo "numsim=${NUMSIM}, n=1500, scenario=${SCENARIO}, seed=${SEED}, study=${STUDY}, numGrp=${NUMGRP}."
+          export NUMSIM SCENARIO SEED STUDY NUMGRP
+          bsub -q short -W 11:30 -n 1 -u sanoke527@gmail.com -N Rscript simulationStudy.R  ${SCENARIO} ${NUMSIM} ${SEED} ${STUDY} ${NUMGRP}
+        done
+      done
+    done
+  done
+done

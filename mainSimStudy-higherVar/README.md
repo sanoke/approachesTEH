@@ -3,15 +3,13 @@
 
 #### Code + Results for simulation study with high variance
 
-It has
+This simulation is the same as the one described in section 4.1.1 of the manuscript and in the README of [`mainSimStudy`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy), 
+except the outcome variance is 
+now 100 units, instead of 1 unit. 
 
-This repository contains code that will reproduce the analyses in our manuscript.
-The directories are defined as follows.
+**Note** This particular simulation was not included in the manuscript.
 
-- **directory 1**
-- **directory 2**
-- **directory 3**
-
+**Note** Because of space, not all result files are stored here. One example result file from each simulation scenario (4 scenarios) and each estimation method (3 methods) are in the directory `res` (12 files).
 
 #### Bug Reporting
 
