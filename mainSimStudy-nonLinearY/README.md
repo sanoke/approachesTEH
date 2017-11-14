@@ -4,12 +4,12 @@
 #### Code + Results for simulation study with high variance
 
 This simulation is the same as the one described in section 4.1.1 of the manuscript and in the README of [`mainSimStudy`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy), 
-except the relationship between the covariates and the outcome mean is now
-a quadratic function (instead of a linear function).
+except the relationship between the confounders and the outcome mean is now
+a quadratic function (instead of a linear function), corresponding to scenario D*.
 
-**Note** This particular simulation was not included in the manuscript.
+**Note** Only the nonlinear scenario is simulated here, the other scenarios are contained in [`mainSimStudy`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy).
 
-**Note** Because of space, not all result files are stored here. One example result file from each simulation scenario (4 scenarios) and each estimation method (3 methods) are in the directory `res` (12 files).
+**Note** Construction of the figure involves use of result files from the [main simulation study](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy).
 
 #### Bug Reporting
 

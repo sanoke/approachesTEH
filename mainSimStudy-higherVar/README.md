@@ -7,9 +7,7 @@ This simulation is the same as the one described in section 4.1.1 of the manuscr
 except the outcome variance is 
 now 100 units, instead of 1 unit. 
 
-**Note** This particular simulation was not included in the manuscript.
-
-**Note** Because of space, not all result files are stored here. One example result file from each simulation scenario (4 scenarios) and each estimation method (3 methods) are in the directory `res` (12 files).
+**Note** This particular simulation was not included in the manuscript, but is in the Appendix.
 
 #### Bug Reporting
 

@@ -3,7 +3,7 @@
 
 #### Code + Results for simulation study from manuscript
 
-This simulation is the same as the one described in section 4.1.1 of the manuscript.
+This simulation is the same as the one described in section 4.1 of the manuscript (only scenarios A through D, see [`mainSimStudy-nonLinearY`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy-nonLinearY) for D* (the nonlinear simulation scenario).
 
 To run this simulation:
 

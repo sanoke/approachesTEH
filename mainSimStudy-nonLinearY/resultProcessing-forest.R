@@ -43,7 +43,8 @@ tmtEff.lvls.FS <- c(paste0("TE(",1:15,")"))
 
 
 # - result processing loop: values to loop through
-scenario <- c("A","B","C","D")
+# scenario <- c("A","B","C","D")
+scenario <- c("D")
 scenarioDesc <- c("confounding + no EM",
                   "EM + no confounding",
                   "EM + confonding",
@@ -142,7 +143,7 @@ for(scen in scenario) {
 	        ylab("Treatment Effect") +
 	        ylim(0,13) +
 	        ggtitle(paste0(m, " (", scen, ": ", scenarioDesc[index1],") n=1500")) +
-	        annotate("text", x=numGrp:1, y=12.5, label=counts, colour="blue", size=2) +
+	        #annotate("text", x=numGrp:1, y=12.5, label=counts, colour="blue", size=2) +
 	        geom_hline(yintercept=c(1,2,5,6,9,10), linetype="dotted")
 		ggsave(paste0("forestPlots/estTrtEff-n", n, "-numsim100-",m,"-",scen, ".png"), 
 			    width=6, height=3, units="in", dpi=800)
@@ -151,7 +152,7 @@ for(scen in scenario) {
 
 
 # by the true treatment effect
-for(scen in LETTERS[1:4]) {
+for(scen in scenario) {
 
 	for(m in method) {
 		
@@ -240,7 +241,7 @@ for(scen in LETTERS[1:4]) {
 	        ylab("Treatment Effect") +
 	        ylim(0,13) +
 	        ggtitle(paste0(m, " (", scen, ": ", scenarioDesc[index1],") n=1500")) +
-	        annotate("text", x=8:1, y=12.5, label=counts, colour="blue", size=2) +
+	        #annotate("text", x=8:1, y=12.5, label=counts, colour="blue", size=2) +
 	        geom_hline(yintercept=5, linetype="dotted")
 		ggsave(paste0("forestPlots/trueTrtEff-n", n, "-numsim100-",m,"-",scen, ".png"), 
 			    width=6, height=3, units="in", dpi=800)
