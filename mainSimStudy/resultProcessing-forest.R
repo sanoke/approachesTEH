@@ -129,6 +129,7 @@ for(scen in scenario) {
 		index1 <- which(LETTERS[1:4]==scen)
 	
 		ggplot(estimates, aes(x=grp, y=TE, fill=grp)) + 
+		    geom_hline(yintercept=c(1,2,5,6,9,10), linetype="dotted") +
 	        stat_boxplot(geom ='errorbar', stat_params = list(width = 0.5), lwd=0.001) +
 	        geom_boxplot(lwd=0.3, outlier.size=1, fatten=1) +
 	        guides(fill=FALSE) + coord_flip() + 
@@ -142,8 +143,7 @@ for(scen in scenario) {
 	        ylab("Treatment Effect") +
 	        ylim(0,13) +
 	        ggtitle(paste0(m, " (", scen, ": ", scenarioDesc[index1],") n=1500")) +
-	        annotate("text", x=numGrp:1, y=12.5, label=counts, colour="blue", size=2) +
-	        geom_hline(yintercept=c(1,2,5,6,9,10), linetype="dotted")
+	        annotate("text", x=numGrp:1, y=12.5, label=counts, colour="blue", size=2) 
 		ggsave(paste0("forestPlots/estTrtEff-n", n, "-numsim100-",m,"-",scen, ".png"), 
 			    width=6, height=3, units="in", dpi=800)
 	}
@@ -227,6 +227,7 @@ for(scen in LETTERS[1:4]) {
 		index1 <- which(LETTERS[1:4]==scen)
 	
 		ggplot(estimates, aes(x=grp, y=TE, fill=grp)) + 
+		    geom_hline(yintercept=c(1,2,5,6,9,10), linetype="dotted") +
 	        stat_boxplot(geom ='errorbar', stat_params = list(width = 0.5), lwd=0.001) +
 	        geom_boxplot(lwd=0.3, outlier.size=1, fatten=1) +
 	        guides(fill=FALSE) + coord_flip() + 
@@ -240,8 +241,7 @@ for(scen in LETTERS[1:4]) {
 	        ylab("Treatment Effect") +
 	        ylim(0,13) +
 	        ggtitle(paste0(m, " (", scen, ": ", scenarioDesc[index1],") n=1500")) +
-	        annotate("text", x=8:1, y=12.5, label=counts, colour="blue", size=2) +
-	        geom_hline(yintercept=5, linetype="dotted")
+	        annotate("text", x=8:1, y=12.5, label=counts, colour="blue", size=2) 
 		ggsave(paste0("forestPlots/trueTrtEff-n", n, "-numsim100-",m,"-",scen, ".png"), 
 			    width=6, height=3, units="in", dpi=800)
 	}

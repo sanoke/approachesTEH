@@ -161,6 +161,9 @@ rownames(matchVals1) <- rownames(matchVals2) <- rownames(matchVals3) <- rep(meth
 colnames(matchVals1) <- colnames(matchVals2) <- colnames(matchVals3) <- rep(paste("Scen",c("A","C","C*","D")), each=11)
 
 numCol <- 22 # (helps in determining the color scale)
+numCol <- round(58/81*numCol) # so the color scale is the same as the 
+                          # other images in the manuscript
+                          # (max here is 58, max in the other images is 81)
 
 filename <- paste0("mainSimStudy-annot.png")
 png(filename, width=21, height=9, res=800, units="in")
@@ -188,12 +191,12 @@ png(filename, width=21, height=9, res=800, units="in")
 	}
 	par(op)
 	op <- par(xpd=TRUE)
-	points(1:numCol*0.0194 + 0.29,
+	points(1:numCol*0.0194 + 0.33,
 	       rep(-0.11,numCol), 
 	       pch=15, col=rainbow(30,end=4/6,alpha=0.7)[1:numCol], cex=5)
 	#text(0.335, -0.14, "smallest", font=2)
 	#text(0.675, -0.14, "largest", font=2)
-	text(seq(0.0194+0.29, numCol*0.0194+0.29, length=6) , 
+	text(seq(0.0194 + 0.33, numCol*0.0194 + 0.33, length=6) , 
 	     -0.11, round(seq(min(matchVals2,na.rm=TRUE),
 	                max(matchVals2,na.rm=TRUE),
 	                length=6)), font=2)
@@ -224,12 +227,12 @@ png(filename2, width=21, height=9, res=800, units="in")
 	yVals <- seq(1,0,length=nrow(matchVals2))
 	par(op)
 	op <- par(xpd=TRUE)
-	points(1:numCol*0.0194 + 0.29,
+	points(1:numCol*0.0194 + 0.33,
 	       rep(-0.11,numCol), 
 	       pch=15, col=rainbow(30,end=4/6,alpha=0.7)[1:numCol], cex=5)
 	#text(0.335, -0.14, "smallest", font=2)
 	#text(0.675, -0.14, "largest", font=2)
-	text(seq(0.0194+0.29, numCol*0.0194+0.29, length=6) , 
+	text(seq(0.0194+0.33, numCol*0.0194+0.33, length=6) , 
 	     -0.11, round(seq(min(matchVals2,na.rm=TRUE),
 	                max(matchVals2,na.rm=TRUE),
 	                length=6)), font=2)	

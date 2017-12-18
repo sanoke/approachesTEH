@@ -175,7 +175,7 @@ matchVals1 <- round(matchVals1*100,1)
 matchVals2 <- round(matchVals2*100,1)
 matchVals3 <- round(matchVals3*100,1)
 rownames(matchVals1) <- rownames(matchVals2) <- rownames(matchVals3) <- rep(method, each=8)
-colnames(matchVals1) <- colnames(matchVals2) <- colnames(matchVals3) <- rep(paste("Scen",c("A","C","C*","D")), each=11)
+colnames(matchVals1) <- colnames(matchVals2) <- colnames(matchVals3) <- rep(paste("Scen",c("B","C","D","D*")), each=11)
 
 numCol <- 22 # (helps in determining the color scale)
 

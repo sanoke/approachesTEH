@@ -37,7 +37,7 @@ tmtEff.lvls <- c(paste0("TE(",1:10,")"), "undef") # lump undefined TE grps toget
 tmtEff.lvls.FS <- c(paste0("TE(",1:15,")"))
 
 # - result processing loop: values to loop through
-scenario <- c("A","B","C","D")
+scenario <- c("A","B","C","D", "D*")
 method <- c("GBM", "BART", "FS-bt")
 numsim <- 100
 
@@ -69,13 +69,24 @@ sensitivity <- list()
 # # # calculate the percentage of 'expected' matches
 for(m in method) {
 	
-	for(scen in c("A","B","C","D")) {
+	for(scen in c("A","B","C","D", "D*")) {
 			
 		    # initializing method-specific summary objects
 			rowPerc <- matrix(0, nrow=length(tmtEff), ncol=length(tmtEff.lvls))
 			simCount <- numeric(length(tmtEff.lvls))
 			
 			print(paste(c(m,scen)))
+			
+			if(scen == "D*") {
+				setwd("~/GitHub/approachesTEH/mainSimStudy-nonLinearY")					
+				scen <- "D"
+				nonLinear <- TRUE
+				prefix1 <- "res/simLargeVar-study-"
+			} else {
+				setwd("~/GitHub/approachesTEH/mainSimStudy")
+				prefix1 <- "res/simStudy-"
+				nonLinear <- FALSE
+			}			
 				        
 			for(j in 1:numsim) { # calculate the rowPerc matrix and sum across sim iterations
 
@@ -119,6 +130,8 @@ for(m in method) {
 				# print(c("FS ", mean(estim[[j]]$n0 + estim[[j]]$n1)))
 				
 			} # - END, simulation iterations
+			
+			if(nonLinear) scen <- "D*"
 					
 			# group assignment percentage, averaged over all simulations	
 			res1[[m]][[scen]] <- round(rowPerc / numsim, 3)
@@ -158,58 +171,25 @@ distanceFunc <- function(x,y) {
 	return(mean(sqrt(cellDist)))
 }
 
-distance0   <- colorMapping( matrix(0.10, nrow=8, ncol=10) )
-distance100 <- colorMapping(expCell)
+distance0   <- colorMapping( matrix(0.10, nrow=8, ncol=10) ) # homogeneity
+distance100 <- colorMapping( expCell )                       # expected cell distribution
 
 for(m in c("BART", "GBM", "FS-bt")) {
 	index1 <- which(c("BART", "GBM", "FS-bt")==m)
-	for(scen in c("A","B","C","D")) {
-		index2 <- which(c("A","B","C","D") == scen)
+	for(scen in c("A","B","C","D","D*")) {
+		index2 <- which(c("A","B","C","D","D*") == scen)
 		print(paste(m,scen))
 		colorGrid <- colorMapping(res2[[m]][[scen]][,1:10])
 		
-		# distance from 'no heterogeneity' 
-		print( 1 - distanceFunc( colorGrid, distance100 ) / distanceFunc( distance0, distance100 ))
+		if(scen == "A") {
+			# distance from 'homogeneity' 
+			print( 1 - distanceFunc( colorGrid, distance0 )   / distanceFunc( distance0, distance100 ))
+			# print( 1 - distanceFunc( colorGrid, distance0 ) )
+		} else {
+			# distance from the pattern we expect (this value used in manuscript)
+			print( 1 - distanceFunc( colorGrid, distance100 ) / distanceFunc( distance0, distance100 ))
+			# print( 1 - distanceFunc( colorGrid, distance100 ) )
+		}
 		
-		# distance from the pattern we expect (this value used in manuscript)
-		print( 1 - distanceFunc( colorGrid, distance0 ) / distanceFunc( distance0, distance100 ))
 	}
 }
-
-# results
-# [1] "BART A"
-# [1] 0.001004892
-# [1] 0.9480756
-# [1] "BART B"
-# [1] 0.5777607
-# [1] 0.213346
-# [1] "BART C"
-# [1] 0.5447366
-# [1] 0.2209076
-# [1] "BART D"
-# [1] 0.5320166
-# [1] 0.2704999
-# [1] "GBM A"
-# [1] 0.0003068753
-# [1] 0.9886319
-# [1] "GBM B"
-# [1] 0.0002578194
-# [1] 0.9836179
-# [1] "GBM C"
-# [1] 0.0005000625
-# [1] 0.9878576
-# [1] "GBM D"
-# [1] 0.03055456
-# [1] 0.7098231
-# [1] "FS-bt A"
-# [1] 0.004711816
-# [1] 0.9484543
-# [1] "FS-bt B"
-# [1] 0.1806417
-# [1] 0.5284859
-# [1] "FS-bt C"
-# [1] 0.03790337
-# [1] 0.8833248
-# [1] "FS-bt D"
-# [1] 0.1008228
-# [1] 0.6206516
