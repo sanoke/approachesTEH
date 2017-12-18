@@ -9,3 +9,8 @@
 mainSimStudy/fullRes
 mainSimStudy-higherVar/fullRes
 mainSimStudy-nonLinearY/fullRes
+
+# full data files (too many for GitHub)
+mainSimStudy/fullData
+mainSimStudy-higherVar/fullData
+mainSimStudy-nonLinearY/fullData
