@@ -3,7 +3,7 @@
 
 #### Code + Results for simulation study with high variance
 
-This simulation is the same as the one described in section 4.1.1 of the manuscript and in the README of [`mainSimStudy`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy), 
+This simulation is the same as the one described in section 4.1 of the manuscript and in the README of [`mainSimStudy`](https://github.com/sanoke/approachesTEH/tree/master/mainSimStudy), 
 except the relationship between the confounders and the outcome mean is now
 a quadratic function (instead of a linear function), corresponding to scenario D*.
 

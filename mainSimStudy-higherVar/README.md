@@ -7,7 +7,7 @@ This simulation is the same as the one described in section 4.1.1 of the manuscr
 except the outcome variance is 
 now 100 units, instead of 1 unit. 
 
-**Note** This particular simulation was not included in the manuscript, but is in the Appendix.
+**Note** This particular simulation was not included in the manuscript, but is in Appendix 4 of the Supplementary Materials.
 
 #### Bug Reporting
 

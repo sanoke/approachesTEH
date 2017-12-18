@@ -9,7 +9,7 @@ To run this simulation:
 
 1. **Generate the data** by running `dataGeneration.R`.  
     - The script `helperFcns.R` contains the function `datagen()`, which is used to generate a dataset of size `n` (as described in section 4.1.1 of the manuscript). 
-    - The script `dataGeneration.R` uses `datagen()` within a loop to generate `numsim` datasets of size `n`, under all four simulation scenarios (A, B, C, D). These datasets are stored within the directories `dataFilesA`, `dataFilesB`, `dataFilesC`, `dataFilesD`. 
+    - The script `dataGeneration.R` uses `datagen()` within a loop to generate `numsim` datasets of size `n`, under all four simulation scenarios (A, B, C, D). Example datasets are stored within the directories `dataFilesA`, `dataFilesB`, `dataFilesC`, `dataFilesD`. 
     - The outcome variance is defined using the variable `varOutcome` within the script `dataGeneration.R`. 
     - A set of 400 (4 scenarios, 100 datasets each) datasets have been generated under the seed 1, and are contained within `dataFiles`, but feel free to generate your own. 
 
@@ -35,7 +35,8 @@ To run this simulation:
 3. **Visualize the results.**
     - The results contained in the `res` directory are then visualized using the `resultProcessing.R` script. Examples of the expected figures are `mainSimStudy-annot.png` and `mainSimStudy.png`.
     - Sensitivity calculations are done using the `sensitivity.R` script.
-    - Forest plots are generated using `resultProcessing-forest.R`. Note: The white dot represent the mean. 
+    - Forest plots are generated using `resultProcessing-forest.R`. Note: The white dot represent the mean.
+    - Example result files have been provided in the `res` directory. 
 
 4. **Other notes**
     - `shellScript.txt` and `shellScriptFS.txt` are examples of scripts we use to run the simulation on our clusters; they may be helpful for you.
