@@ -16,7 +16,7 @@ rotate <- function(x) t(apply(x, 2, rev))
 numGrp <- 10
 
 # strings that make it easier to process the result files
-prefix1 <- "res/simLargeVar-study-"
+prefix1 <- "res/simNonLinear-study-"
 prefix2 <- "-n1500-numsim100-scen"
 prefix3 <- "-seed1-numGrp"
 prefix4 <- ".RData"
@@ -71,7 +71,7 @@ for(m in method) {
 				setwd("~/GitHub/approachesTEH/mainSimStudy-nonLinearY")					
 				scen <- "D"
 				nonLinear <- TRUE
-				prefix1 <- "res/simLargeVar-study-"
+				prefix1 <- "res/simNonLinear-study-"
 			} else {
 				setwd("~/GitHub/approachesTEH/mainSimStudy")
 				prefix1 <- "res/simStudy-"

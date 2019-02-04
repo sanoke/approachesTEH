@@ -84,7 +84,7 @@ cols.covars <- c(cols.cat, cols.interval)
 estim <- estimation(ds, procedure=study, numGrp=numGrp)
 
 # - This is where we save the resumts of the estimation procedure.
-fileName <- paste0("./res/simLargeVar-study-", procedure, "-n", n, "-numsim", numsim,
+fileName <- paste0("./res/simNonLinear-study-", procedure, "-n", n, "-numsim", numsim,
 	               "-scen", scenario, "-seed", seedVal, "-numGrp", numGrp,
 	               ".RData")
 	               
