@@ -10,10 +10,11 @@ To run this simulation:
 1. **Generate the data** by running `dataGeneration.R`.  
     - The script `helperFcns.R` contains the function `datagen()`, which is used to generate a dataset of size `n` (as described in section 4.1.1 of the manuscript). 
     - The script `dataGeneration.R` uses `datagen()` within a loop to generate `numsim` datasets of size `n`, under all four simulation scenarios (A, B, C, D). Example datasets are stored within the directories `dataFilesA`, `dataFilesB`, `dataFilesC`, `dataFilesD`. 
+    - Note that in the manuscript `numsim = 1000`... one GBM or BART simulation completes in a few minutes, but one FS simulation takes up to 12 hours. Thus you may want to select a more practical number of simiulations.
     - The outcome variance is defined using the variable `varOutcome` within the script `dataGeneration.R`. 
 
 2. **Apply each of the three TEH identification methods to the data.**
-    - The script `simulationStudy.R` applies one of the three estimation procedures to one dataset. Thus the application of all three estimation procedures to all 400 datasets would require calling this script 3 x 400 = 1200 times, resulting in 1200 result files.
+    - The script `simulationStudy.R` applies one of the three estimation procedures to one dataset. Thus the application of all three estimation procedures to all 4 x `numsim` datasets would require calling this script 3 x 400 = 1200 times, resulting in 1200 result files.
        - The results are saved in the `res` directory.
     - The function that does the TEH estimation work `estimation()` (defined in `helperFcns.R`). 
        - This function has three arguments, `ds` (the dataset to be partitioned), `procedure` (an integer indicating which estimation procedure to use in determining the partition, where 2 is GBM, 3 is BART, and 8 is the facilitating score), and `numGrp` (the number of desired subgroups in the estimated partition).
@@ -34,7 +35,7 @@ To run this simulation:
 3. **Visualize the results.**
     - The results contained in the `res` directory are then visualized using the `resultProcessing.R` script. Examples of the expected figures are `mainSimStudy-annot.png` and `mainSimStudy.png`.
     - Sensitivity calculations are done using the `sensitivity.R` script.
-    - Forest plots are generated using `resultProcessing-forest.R`. Note: The white dot represent the mean.
+    - Forest plots are generated using `resultProcessing-forest.R`. Note: The white dot represents the mean.
     - Example result files have been provided in the `res` directory. 
 
 4. **Other notes**
