@@ -1,0 +1,30 @@
+#!/bin/bash
+# https://slurm.schedmd.com/sbatch.html for details on flags
+
+#SBATCH -c 1                               # Also --cpus-per-task, the number of 
+                                           #    processors required for each task (max 20)
+#SBATCH -N 1                               # Number of nodes allocated to this job
+                                           # (if you request more than one core with -c, 
+                                           #    also using
+                                           #    -N 1 means all cores will be on the same
+                                           #    node)
+
+
+#SBATCH -t 0-11:30                         # Runtime in D-HH:MM format
+#SBATCH -p short                           # Partition to run in
+#SBATCH --mem=2G                           # Memory total in MB (for all cores)
+#SBATCH -o out/BART-A-%A_%a.out            # File to which STDOUT will be written,
+                                           #    including job ID (%A) and array ID (%a)
+#SBATCH -e err/BART-A-%A_%a.err            # File to which STDERR will be written, 
+                                           #    including job ID
+#SBATCH --export=NONE                      # Start w/ a fresh environ every time
+#SBATCH --array=1-1000                     # This job array consists of 1000 tasks
+ 
+
+export R_LIBS_USER="/home/sca8/R/library"
+module load gcc/6.2.0 R/3.2.5
+
+
+# R script syntax: sim13-study.R ${SCENARIO} ${NUMSIM} ${SEED} ${STUDY} ${NUMGRP}
+
+Rscript sim13-study.R 1 ${SLURM_ARRAY_TASK_ID} 1 "BART" 10
