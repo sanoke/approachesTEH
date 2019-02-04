@@ -11,7 +11,6 @@ To run this simulation:
     - The script `helperFcns.R` contains the function `datagen()`, which is used to generate a dataset of size `n` (as described in section 4.1.1 of the manuscript). 
     - The script `dataGeneration.R` uses `datagen()` within a loop to generate `numsim` datasets of size `n`, under all four simulation scenarios (A, B, C, D). Example datasets are stored within the directories `dataFilesA`, `dataFilesB`, `dataFilesC`, `dataFilesD`. 
     - The outcome variance is defined using the variable `varOutcome` within the script `dataGeneration.R`. 
-    - A set of 400 (4 scenarios, 100 datasets each) datasets have been generated under the seed 1, and are contained within `dataFiles`, but feel free to generate your own. 
 
 2. **Apply each of the three TEH identification methods to the data.**
     - The script `simulationStudy.R` applies one of the three estimation procedures to one dataset. Thus the application of all three estimation procedures to all 400 datasets would require calling this script 3 x 400 = 1200 times, resulting in 1200 result files.
