@@ -10,7 +10,7 @@ To run this simulation:
 1. **Generate the data** by running `dataGeneration.R`.  
     - The script `helperFcns.R` contains the function `datagen()`, which is used to generate a dataset of size `n` (as described in section 4.1.1 of the manuscript). 
     - The script `dataGeneration.R` uses `datagen()` within a loop to generate `numsim` datasets of size `n`, under all four simulation scenarios (A, B, C, D). Example datasets are stored within the directories `dataFilesA`, `dataFilesB`, `dataFilesC`, `dataFilesD`. 
-    - Note that in the manuscript `numsim = 1000`. One GBM or BART simulation completes in a few minutes, but one FS simulation takes up to 12 hours. Thus you may want to select a more practical number of simiulations.
+    - Note that in the manuscript `numsim = 1000`. One GBM or BART simulation completes in a few minutes, but one FS simulation takes up to 12 hours. Thus you may want to select a more practical number of simulations (e.g., 100). 
     - The outcome variance is defined using the variable `varOutcome` within the script `dataGeneration.R`. 
 
 2. **Apply each of the three TEH identification methods to the data.**
